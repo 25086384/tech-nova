@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Nova</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #000000, #444444);
+  text-align: center;
+  padding: 3rem 1rem;
+  color: white;
+}
+
+/* ✅ FIXED NAV (NO MORE STICKY) */
+nav {
+  background: #e6e6e6;
+  position: relative; /* 🔥 changed from sticky */
+  border-bottom: 1px solid #ccc;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: #111;
+  padding: 1rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: #444444;
+  color: white;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* IMAGE */
+img {
+  width: 140px;
+  border-radius: 50%;
+  border: 3px solid #444444;
+  display: block;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+
+/* PROJECTS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  border-color: #444444;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #e6e6e6;
+  margin-top: 2rem;
+  border-top: 1px solid #ccc;
+}
+
+/* 📱 MOBILE MENU */
+@media(max-width: 600px) {
+
+  .menu-toggle {
+    display: block;
+    text-align: right;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links a {
+    border-top: 1px solid #ccc;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup img {
+  width: 300px;
+  max-width: 90%;
+  border-radius: 10px;
+}
+
+/* CONTACT */
+#contact p {
+  color: #000;
+}
+
+#contact a {
+  color: #000;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Tech Nova</h1>
+  <p>Student | Future Web Developer 💻</p>
+</header>
+
+<nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+</nav>
+
+<section id="home">
+  <h2>Welcome</h2>
+  <p>Hello I am Tumisho Leboho</p>
+  <p>This is my personal portfolio website.</p>
+
+  <img src="myphoto.jpg" onclick="openPopup(this)">
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+
+  <p><strong>Academic Background:</strong> Computer Science Student at University of Venda.</p>
+
+  <p><strong>Skills:</strong> HTML, CSS. Currently learning JavaScript and Java .</p>
+
+  <p><strong>Goals:</strong> My goal is to become a highly skilled and innovative web developer.</p>
+
+  <p><strong>Personal Strengths:</strong> Problem-solving, attention to detail, and a strong willingness to learn and grow in the tech industry.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <div class="project">
+      <h3>Personal Portfolio Website</h3>
+      <p>This project is a fully responsive personal portfolio website designed to showcase my skills, background, and projects.</p>
+      <p><strong>Features:</strong></p>
+      <ul>
+        <li>Responsive design for mobile and desktop</li>
+        <li>Navigation menu with hamburger menu for mobile</li>
+        <li>Interactive image popup feature</li>
+        <li>Clean and modern user interface</li>
+      </ul>
+      <p><strong>Tools Used:</strong> HTML, CSS</p>
+    </div>
+
+    <div class="project">
+      <h3>Weather App (Upcoming Project)</h3>
+      <p>This project will be a web application that displays real-time weather information for different locations.</p>
+      <p><strong>Planned Features:</strong></p>
+      <ul>
+        <li>Search for any city worldwide</li>
+        <li>Display temperature, weather conditions, and humidity</li>
+        <li>Use of live API data</li>
+        <li>User-friendly interface</li>
+      </ul>
+      <p><strong>Tools:</strong> HTML, CSS, JavaScript, Weather API</p>
+    </div>
+
+    <div class="project">
+      <h3>Future Web Applications</h3>
+      <p>I plan to develop more advanced applications such as:</p>
+      <ul>
+        <li>Task management app</li>
+        <li>Student management system</li>
+        <li>Interactive web dashboards</li>
+      </ul>
+      <p><strong>Goal:</strong> To gain real-world development experience and improve problem-solving skills.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:surpriseleboho@gmail.com">surpriseleboho@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/25086384" target="_blank">github.com/25086384</a></p>
+</section>
+
+<footer>
+  <p>© 2026 Tumisho Leboho</p>
+</footer>
+
+<!-- POPUP -->
+<div class="popup" id="popup" onclick="closePopup()">
+  <img id="popupImg">
+</div>
+
+<script>
+function openPopup(img){
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popupImg").src = img.src;
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
+
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
